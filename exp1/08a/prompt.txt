@@ -1,0 +1,4 @@
+I have this CSV file and I want to build a knowledge graph with all the relations. Could you make the graph and the corresponding mappings in RML? Make sure you reflect ALL de relations EXPLICITLY.
+student.csv
+ID,Name,Sport
+10,Venus Williams,Tennis

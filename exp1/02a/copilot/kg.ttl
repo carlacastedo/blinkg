@@ -1,0 +1,7 @@
+@prefix ex: <http://example.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://example.org/student/10> a ex:Student ;
+    ex:hasID 10 ;
+    ex:hasName "Venus" .
+

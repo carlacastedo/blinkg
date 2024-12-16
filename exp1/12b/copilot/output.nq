@@ -1,0 +1,6 @@
+<http://example.com/person/Bob_Smith> <http://example.com/amount> "30" .
+<http://example.com/person/Bob_Smith> <http://example.com/lives_in> "London" .
+<http://example.com/person/Bob_Smith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Person> .
+<http://example.com/person/Sue_Jones> <http://example.com/amount> "20" .
+<http://example.com/person/Sue_Jones> <http://example.com/lives_in> "Madrid" .
+<http://example.com/person/Sue_Jones> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Person> .

@@ -1,0 +1,9 @@
+I have these CSV related files and I want to build a knowledge graph with all the relations between them. Could you make the graph and the corresponding mappings in RML? Make sure you reflect ALL de relations between them EXPLICITLY.
+country_es.csv 
+Code,Name
+BO,"Estado Plurinacional de Bolivia"
+IE,Irlanda
+country_en.csv
+Code,Name
+BO,"Bolivia, Plurinational State of"
+IE,Ireland

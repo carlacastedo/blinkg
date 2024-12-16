@@ -1,0 +1,11 @@
+@prefix ex: <http://example.org/ns#> .
+
+<http://example.org/country/BO>
+    ex:code "BO";
+    ex:name_es "Estado Plurinacional de Bolivia";
+    ex:name_en "Bolivia, Plurinational State of" .
+
+<http://example.org/country/IE>
+    ex:code "IE";
+    ex:name_es "Irlanda";
+    ex:name_en "Ireland" .

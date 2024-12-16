@@ -1,0 +1,9 @@
+<http://example.com/1> <http://example.com/code> "1" .
+<http://example.com/1> <http://example.com/iso> "BO" .
+<http://example.com/1> <http://example.com/name> "Bolivia, Plurinational State of" .
+<http://example.com/2> <http://example.com/code> "2" .
+<http://example.com/2> <http://example.com/iso> "IE" .
+<http://example.com/2> <http://example.com/name> "Ireland" .
+<http://example.com/3> <http://example.com/code> "3" .
+<http://example.com/3> <http://example.com/iso> "MF" .
+<http://example.com/3> <http://example.com/name> "Saint Martin (French part)" .

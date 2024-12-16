@@ -1,0 +1,14 @@
+@prefix ex: <http://example.com/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+# Students
+ex:student/10 a ex:Student ;
+    ex:hasName "Venus Williams" ;
+    ex:plays ex:sport/100 .
+
+ex:student/20 a ex:Student ;
+    ex:hasName "Demi Moore" .
+
+# Sports
+ex:sport/100 a ex:Sport ;
+    ex:hasName "Tennis" .

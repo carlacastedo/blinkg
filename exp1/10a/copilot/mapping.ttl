@@ -1,0 +1,22 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/> .
+
+<#TriplesMap1>
+    rml:logicalSource [
+        rml:source "country_info.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://example.org/{Country Code}";
+        rr:class ex:Country
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:hasName;
+        rr:objectMap [ rml:reference "Name" ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:hasISO3166;
+        rr:objectMap [ rml:reference "ISO 3166" ]
+    ].

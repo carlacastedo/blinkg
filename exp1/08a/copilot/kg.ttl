@@ -1,0 +1,6 @@
+@prefix ex: <http://example.org/> .
+
+ex:10 a ex:Student ;
+    ex:name "Venus Williams" ;
+    ex:sport "Tennis" .
+
