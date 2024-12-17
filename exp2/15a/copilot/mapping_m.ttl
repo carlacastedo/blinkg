@@ -1,0 +1,40 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/#> .
+
+ex:MappingCountryES a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "country_es.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://example.org/{Code}";
+        rr:class ex:Country
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:iso3166;
+        rr:objectMap [ rml:reference "Code"; rr:datatype xsd:string ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:name;
+        rr:objectMap [ rml:reference "Name"; rr:language "es" ]
+    ].
+
+ex:MappingCountryEN a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "country_en.csv";
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://example.org/{Code}";
+        rr:class ex:Country
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:iso3166;
+        rr:objectMap [ rml:reference "Code"; rr:datatype xsd:string ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:name;
+        rr:objectMap [ rml:reference "Name"; rr:language "en" ]
+    ].

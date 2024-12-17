@@ -1,0 +1,42 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/#> .
+
+ex:StudentSportMapping a rr:TriplesMap ;
+  rml:logicalSource [
+        rml:source "student_sport.csv" ;
+        rml:referenceFormulation ql:CSV
+    ];
+  rr:subjectMap [
+      rr:template "http://example.org/{Student}" ;
+      rr:class ex:Person ;
+  ] ;
+  rr:predicateObjectMap [
+      rr:predicate ex:name ;
+      rr:objectMap [ rr:column "Student" ] ;
+  ] ;
+  rr:predicateObjectMap [
+      rr:predicate ex:practises ;
+      rr:objectMap [
+          rr:parentTriplesMap ex:SportMapping ;
+          rr:joinCondition [
+              rr:child "Sport" ;
+              rr:parent "Sport" ;
+          ] ;
+      ] ;
+  ] .
+
+ex:SportMapping a rr:TriplesMap ;
+  rml:logicalSource [
+        rml:source "student_sport.csv" ;
+        rml:referenceFormulation ql:CSV
+    ];
+  rr:subjectMap [
+      rr:template "http://example.org/{Sport}" ;
+      rr:class ex:Sport ;
+  ] ;
+  rr:predicateObjectMap [
+      rr:predicate ex:sportname ;
+      rr:objectMap [ rr:column "Sport" ] ;
+  ] .

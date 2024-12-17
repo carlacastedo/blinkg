@@ -1,0 +1,68 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+
+ex:StudentMapping a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "student.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://example.org/#person_{ID}" ;
+        rr:class ex:Person
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:id ;
+        rr:objectMap [ rml:reference "ID" ; rr:datatype xsd:integer ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:name ;
+        rr:objectMap [ rml:reference "Name" ; rr:datatype xsd:string ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:firstname ;
+        rr:objectMap [
+            rml:reference "Name" ;
+            rr:template "{Name}" ;
+            rr:termType rr:Literal
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:lastname ;
+        rr:objectMap [
+            rml:reference "Name" ;
+            rr:template "{Name}" ;
+            rr:termType rr:Literal
+        ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:practises ;
+        rr:objectMap [
+            rr:template "http://example.org/#sport_{Sport}" ;
+            rr:termType rr:IRI
+        ]
+    ] .
+
+ex:SportMapping a rr:TriplesMap;
+    rml:logicalSource [
+        rml:source "student.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://example.org/#sport_{Sport}" ;
+        rr:class ex:Sport
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:sportname ;
+        rr:objectMap [ rml:reference "Sport" ; rr:language "en" ]
+    ] .

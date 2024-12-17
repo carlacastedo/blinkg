@@ -1,0 +1,58 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/#> .
+@prefix csvw: <http://www.w3.org/ns/csvw#> .
+@prefix map: <http://mapping.example.org#> .
+
+# Define the mapping document for the CSV file
+map:StudentSportMapping
+    a rml:LogicalSource ;
+    rml:source "student_sport.csv" ;
+    rml:referenceFormulation csvw:Table .
+
+# Map Students to ex:Person class
+map:PersonTriplesMap a rr:TriplesMap ;
+    rml:logicalSource map:StudentSportMapping ;
+
+    # Generate subject for Person (using Student name)
+    rr:subjectMap [
+        rr:template "http://example.org/#{Student}" ;
+        rr:class ex:Person ;
+    ] ;
+
+    # Map firstname property
+    rr:predicateObjectMap [
+        rr:predicate ex:firstname ;
+        rr:objectMap [
+            rml:reference "Student" ;
+            rr:datatype xsd:string ;
+        ] ;
+    ] ;
+
+    # Map practises property to ex:Sport
+    rr:predicateObjectMap [
+        rr:predicate ex:practises ;
+        rr:objectMap [
+            rr:template "http://example.org/#{Sport}" ;
+        ] ;
+    ] .
+
+# Map Sports to ex:Sport class
+map:SportTriplesMap a rr:TriplesMap ;
+    rml:logicalSource map:StudentSportMapping ;
+
+    # Generate subject for Sport (using Sport name)
+    rr:subjectMap [
+        rr:template "http://example.org/#{Sport}" ;
+        rr:class ex:Sport ;
+    ] ;
+
+    # Map sportname property
+    rr:predicateObjectMap [
+        rr:predicate ex:sportname ;
+        rr:objectMap [
+            rml:reference "Sport" ;
+            rr:datatype xsd:string ;
+        ] ;
+    ] .

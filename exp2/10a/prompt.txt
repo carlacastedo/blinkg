@@ -1,0 +1,30 @@
+I have this CSV file and I want to build a knowledge graph with all the relations using this ontology. Could you make the graph and the corresponding mappings in RML? Make sure you reflect ALL de relations EXPLICITLY.
+country_info.csv 
+Country Code,Name,ISO 3166
+1,"Bolivia, Plurinational State of",BO
+2,Ireland,IE
+3,"Saint Martin (French part)",MF
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/#> .
+
+ex:Country a owl:Class ;
+   rdf:label "country" ;
+
+ex:id a owl:DatatypeProperty ;
+   rdfs:label "id" ;
+   rdfs:range xsd:integer ;
+   rdfs:domain ex:Country .
+
+ex:name a owl:DatatypeProperty ;
+   rdfs:label "name" ;
+   rdfs:range xsd:langString ;
+   rdfs:domain ex:Country .
+
+ex:iso3166 a owl:DatatypeProperty ;
+   rdfs:label "iso3166" ;
+   rdfs:range xsd:string ;
+   rdfs:domain ex:Country .

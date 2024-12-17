@@ -1,0 +1,53 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+ex:MappingCountryES a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "country_es.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.org/country/{Code}" ;
+    rr:class ex:Country
+  ];
+  rr:predicateObjectMap [
+    rr:predicate ex:iso3166 ;
+    rr:objectMap [
+      rml:reference "Code" ;
+      rr:datatype xsd:string
+    ]
+  ],
+  [ rr:predicate ex:name ;
+    rr:objectMap [
+      rml:reference "Name" ;
+      rr:language "es"
+    ]
+  ].
+
+ex:MappingCountryEN a rr:TriplesMap;
+  rml:logicalSource [
+    rml:source "country_en.csv" ;
+    rml:referenceFormulation ql:CSV
+  ];
+  rr:subjectMap [
+    rr:template "http://example.org/country/{Code}" ;
+    rr:class ex:Country
+  ];
+  rr:predicateObjectMap [
+    rr:predicate ex:iso3166 ;
+    rr:objectMap [
+      rml:reference "Code" ;
+      rr:datatype xsd:string
+    ]
+  ],
+  [ rr:predicate ex:name ;
+    rr:objectMap [
+      rml:reference "Name" ;
+      rr:language "en"
+    ]
+  ].

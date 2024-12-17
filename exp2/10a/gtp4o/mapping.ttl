@@ -1,0 +1,32 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+<#Mapping_Countries>
+    rml:logicalSource [
+        rml:source "country_info.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://example.org/#Country_{Country Code}" ;
+        rr:class ex:Country
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:id ;
+        rr:objectMap [ rml:reference "Country Code" ; rr:datatype xsd:integer ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:name ;
+        rr:objectMap [ rml:reference "Name" ; rr:datatype rdf:langString ] ;
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate ex:iso3166 ;
+        rr:objectMap [ rml:reference "ISO 3166" ; rr:datatype xsd:string ] ;
+    ] .

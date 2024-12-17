@@ -1,0 +1,4 @@
+<http://example.org/#person10> <http://example.org/#firstname> "Venus" .
+<http://example.org/#person10> <http://example.org/#id> "10"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/#person10> <http://example.org/#name> "Venus" .
+<http://example.org/#person10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/#Person> .
