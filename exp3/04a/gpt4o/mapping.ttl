@@ -1,0 +1,46 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix ex: <http://example.org/#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+
+<#MappingPerson> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "student_sport.json" ;
+        rml:referenceFormulation ql:JSONPath ;
+        rml:iterator "$.students[*]"
+    ] ;
+    rr:subjectMap [
+        rr:template "http://example.org/#{Student}" ;
+        rr:class ex:Person
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:name ;
+        rr:objectMap [ rml:reference "Student" ; rr:datatype xsd:string ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:firstname ;
+        rr:objectMap [ rml:reference "Student" ; rr:datatype xsd:string ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:practises ;
+        rr:objectMap [ rr:template "http://example.org/#{Sport}" ]
+    ] .
+
+<#MappingSport> a rr:TriplesMap ;
+    rml:logicalSource [
+        rml:source "student_sport.json" ;
+        rml:referenceFormulation ql:JSONPath ;
+        rml:iterator "$.students[*]"
+    ] ;
+    rr:subjectMap [
+        rr:template "http://example.org/#{Sport}" ;
+        rr:class ex:Sport
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:sportname ;
+        rr:objectMap [ rml:reference "Sport" ; rr:language "en" ]
+    ] .

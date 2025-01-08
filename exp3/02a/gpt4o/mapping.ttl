@@ -1,0 +1,37 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Logical Source
+<#LogicalSource> a rml:LogicalSource ;
+    rml:source "student.json" ;
+    rml:referenceFormulation ql:JSONPath ;
+    rml:iterator "$.students[*]" .
+
+# Triples Map for Person
+<#PersonTriplesMap> a rr:TriplesMap ;
+    rml:logicalSource <#LogicalSource> ;
+
+    # Subject Map
+    rr:subjectMap [
+        rr:template "http://example.org/#Person{ID}" ;
+        rr:class ex:Person
+    ] ;
+
+    # Predicate-Object Maps
+    rr:predicateObjectMap [
+        rr:predicate ex:id ;
+        rr:objectMap [
+            rml:reference "ID" ;
+            rr:datatype xsd:integer
+        ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:name ;
+        rr:objectMap [
+            rml:reference "Name" ;
+            rr:datatype xsd:string
+        ]
+    ] .

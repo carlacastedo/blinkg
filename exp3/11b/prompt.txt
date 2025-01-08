@@ -1,0 +1,76 @@
+I have these JSON related files and I want to build a knowledge graph with all the relations between them using this ontology. Could you make the graph and the corresponding mappings in RML? Make sure you reflect ALL de relations between them EXPLICITLY.
+student.json
+{
+  "students": [
+    {"ID":10, "FirstName":"Venus", "LastName":"Williams"},
+    {"ID":11, "FirstName":"Fernando", "LastName":"Alonso"},
+    {"ID":12, "FirstName":"David", "LastName":"Villa"}
+  ]
+}
+sport.json
+{
+  "sports": [
+    {"ID":110, "Description":"Tennis"},
+    {"ID":111, "Description":"Football"},
+    {"ID":112, "Description":"Formula1"}
+  ]
+}
+student_sport.json
+{
+  "links": [
+    {"ID_Student":10, "ID_Sport":110},
+    {"ID_Student":11, "ID_Sport":111},
+    {"ID_Student":11, "ID_Sport":112},
+    {"ID_Student":12, "ID_Sport":111}
+  ]
+}
+ontology.ttl
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/#> .
+
+ex:Person a owl:Class ;
+   rdf:label "person" ;
+
+ex:Sport a owl:Class ;
+   rdfs:label "sport" .
+
+ex:id a owl:DatatypeProperty ;
+   rdfs:label "id" ;
+   rdfs:range xsd:integer ;
+   rdfs:domain ex:Person .
+
+ex:name a owl:DatatypeProperty ;
+   rdfs:label "name" ;
+   rdfs:range xsd:string ;
+   rdfs:domain ex:Person .
+
+ex:firstname a owl:DatatypeProperty ;
+   rdfs:label "name" ;
+   rdfs:range xsd:string ;
+   rdfs:domain ex:Person ;
+   rdfs:subClassOf ex:name .
+
+ex:lastname a owl:DatatypeProperty ;
+   rdfs:label "name" ;
+   rdfs:range xsd:string ;
+   rdfs:domain ex:Person ;
+   rdfs:subClassOf ex:name .
+
+ex:sportid a owl:DatatypeProperty ;
+   rdfs:label "sportid" ;
+   rdfs:range xsd:integer ;
+   rdfs:domain ex:Sport .
+
+ex:sportname a owl:DatatypeProperty ;
+   rdfs:label "sportname" ;
+   rdfs:range xsd:langString ;
+   rdfs:domain ex:Sport .
+
+ex:practises a owl:ObjectProperty ;
+   rdfs:label "practises" ;
+   rdfs:range ex:Sport;
+   rdfs:domain ex:Person .

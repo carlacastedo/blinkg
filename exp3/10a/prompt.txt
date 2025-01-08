@@ -1,0 +1,42 @@
+I have this JSON file and I want to build a knowledge graph with all the relations using this ontology. Could you make the graph and the corresponding mappings in RML? Make sure you reflect ALL de relations EXPLICITLY.
+country_info.json 
+{
+  "countries": [{
+    "Country Code": 1,
+    "Name":"Bolivia, Plurinational State of",
+    "ISO 3166": "BO"
+  }, {
+    "Country Code": 2,
+    "Name":"Ireland",
+    "ISO 3166": "IE"
+  }, {
+    "Country Code": 3,
+    "Name":"Saint Martin (French part)",
+    "ISO 3166": "MF"
+  }]
+}
+ontology.ttl
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/#> .
+
+ex:Country a owl:Class ;
+   rdf:label "country" ;
+
+ex:id a owl:DatatypeProperty ;
+   rdfs:label "id" ;
+   rdfs:range xsd:integer ;
+   rdfs:domain ex:Country .
+
+ex:name a owl:DatatypeProperty ;
+   rdfs:label "name" ;
+   rdfs:range xsd:langString ;
+   rdfs:domain ex:Country .
+
+ex:iso3166 a owl:DatatypeProperty ;
+   rdfs:label "iso3166" ;
+   rdfs:range xsd:string ;
+   rdfs:domain ex:Country .
