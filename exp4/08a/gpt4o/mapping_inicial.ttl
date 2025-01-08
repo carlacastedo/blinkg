@@ -1,0 +1,57 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix ql: <http://semweb.mmlab.be/ns/ql#>.
+@prefix ex: <http://example.org/#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+
+# Mapping for Person
+<#PersonMapping>
+    rml:logicalSource [
+        rml:source "student.xml" ;
+        rml:referenceFormulation ql:XPath ;
+        rml:iterator "/students/student"
+    ] ;
+    rr:subjectMap [
+        rr:template "http://example.org/#person{ID}" ;
+        rr:class ex:Person
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:id ;
+        rr:objectMap [ rml:reference "ID" ; rr:datatype xsd:integer ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:name ;
+        rr:objectMap [ rml:reference "Name" ; rr:datatype xsd:string ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:firstname ;
+        rr:objectMap [ rml:reference "substring-before(Name, ' ')" ; rr:datatype xsd:string ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:lastname ;
+        rr:objectMap [ rml:reference "substring-after(Name, ' ')" ; rr:datatype xsd:string ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:practises ;
+        rr:objectMap [ rr:parentTriplesMap <#SportMapping> ]
+    ] .
+
+# Mapping for Sport
+<#SportMapping>
+    rml:logicalSource [
+        rml:source "student.xml" ;
+        rml:referenceFormulation ql:XPath ;
+        rml:iterator "/students/student"
+    ] ;
+    rr:subjectMap [
+        rr:template "http://example.org/#tennis" ;
+        rr:class ex:Sport
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:sportid ;
+        rr:objectMap [ rml:reference "1" ; rr:datatype xsd:integer ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:sportname ;
+        rr:objectMap [ rml:reference "Sport" ; rr:language "en" ]
+    ] .

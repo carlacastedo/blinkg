@@ -1,0 +1,28 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Logical Source
+<#StudentSource> a rml:LogicalSource ;
+    rml:source "student.xml" ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/students/student" .
+
+# Triples Map for Person
+<#PersonMapping> a rr:TriplesMap ;
+    rml:logicalSource <#StudentSource> ;
+
+    # Subject Map
+    rr:subjectMap [
+        rr:template "http://example.org/#{Name}" ;
+        rr:class ex:Person
+    ] ;
+
+    # Predicate-Object Map for name
+    rr:predicateObjectMap [
+        rr:predicate ex:name ;
+        rr:objectMap [ rml:reference "Name" ; rr:datatype xsd:string ]
+    ] .
+

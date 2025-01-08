@@ -1,0 +1,56 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Logical Source definition
+<#StudentSource> a rml:LogicalSource ;
+    rml:source "student_sport.xml" ;
+    rml:referenceFormulation ql:XPath ;
+    rml:iterator "/students/student" .
+
+# Triples Map for Students
+<#StudentMap> a rr:TriplesMap ;
+    rml:logicalSource <#StudentSource> ;
+
+    # Defining the student as an ex:Person
+    rr:subjectMap [
+        rr:template "http://example.org/#{Student}" ;
+        rr:class ex:Person ;
+    ] ;
+
+    # Mapping the name property
+    rr:predicateObjectMap [
+        rr:predicate ex:name ;
+        rr:objectMap [ rml:reference "Student" ; rr:datatype xsd:string ] ;
+    ] ;
+
+    # Mapping the firstname property
+    rr:predicateObjectMap [
+        rr:predicate ex:firstname ;
+        rr:objectMap [ rml:reference "Student" ; rr:datatype xsd:string ] ;
+    ] ;
+
+    # Mapping the practises relationship
+    rr:predicateObjectMap [
+        rr:predicate ex:practises ;
+        rr:objectMap [ rr:template "http://example.org/#{Sport}" ] ;
+    ] .
+
+# Triples Map for Sports
+<#SportMap> a rr:TriplesMap ;
+    rml:logicalSource <#StudentSource> ;
+
+    # Defining the sport as an ex:Sport
+    rr:subjectMap [
+        rr:template "http://example.org/#{Sport}" ;
+        rr:class ex:Sport ;
+    ] ;
+
+    # Mapping the sportname property
+    rr:predicateObjectMap [
+        rr:predicate ex:sportname ;
+        rr:objectMap [ rml:reference "Sport" ; rr:datatype xsd:string ] ;
+    ] .
+

@@ -1,0 +1,28 @@
+@prefix rml: <http://semweb.mmlab.be/ns/rml#>.
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix ex: <http://example.org/#> .
+
+# Mapping for persons
+<#PersonsMapping> a rml:TriplesMap ;
+    rml:logicalSource [
+        rml:source "ious.xml" ;
+        rml:referenceFormulation <http://www.w3.org/TR/xpath/> ;
+        rml:iterator "/persons/person"
+    ] ;
+    rr:subjectMap [
+        rr:template "http://example.org/person/{fname}-{lname}" ;
+        rr:class ex:Person
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:firstname ;
+        rr:objectMap [ rml:reference "fname" ; rr:datatype xsd:string ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:lastname ;
+        rr:objectMap [ rml:reference "lname" ; rr:datatype xsd:string ]
+    ] ;
+    rr:predicateObjectMap [
+        rr:predicate ex:owes ;
+        rr:objectMap [ rml:reference "amount" ; rr:datatype xsd:double ]
+    ] .

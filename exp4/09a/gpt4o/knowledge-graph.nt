@@ -1,0 +1,10 @@
+<http://example.org/#Person_10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/#Person> .
+<http://example.org/#Person_20> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/#Person> .
+<http://example.org/#Person_20> <http://example.org/#id> "20"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/#Person_10> <http://example.org/#id> "10"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://example.org/#Person_10> <http://example.org/#practises> <http://example.org/#Sport_100> .
+<http://example.org/#Person_20> <http://example.org/#name> "Demi Moore" .
+<http://example.org/#Person_10> <http://example.org/#name> "Venus Williams" .
+<http://example.org/#Sport_100> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/#Sport> .
+<http://example.org/#Sport_100> <http://example.org/#sportname> "Tennis"^^<http://www.w3.org/2001/XMLSchema#langString> .
+<http://example.org/#Sport_100> <http://example.org/#sportid> "100"^^<http://www.w3.org/2001/XMLSchema#integer> .
