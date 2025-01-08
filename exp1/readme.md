@@ -12,11 +12,7 @@ Column 1, ..., Column N
 ...
 ```
 
-Both models brought back results for each of the test cases. Every mapping file generated is transformed in the corresponding knowledge graph with RMLMapper. Most of the times the mapping files are not correct, and RMLMapper cannot build the graph. Since the correction of the semantics is the topic of the study, the syntax is corrected manually in these cases. The following table shows which mapping files have been repaired for Microsoft Copilot. All of ChatGPT mapping files had to be repaired.
-
-| | 01a | 02a | 04a | 05a | 08a | 09a | 10a | 11b | 12a | 12b | 15a |
-|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-|Repaired| x | x | | x | x | | x | | x | | x |
+Both models brought back results for each of the test cases. Every mapping file generated is transformed in the corresponding knowledge graph with Morph-KGC. Sometimes the mapping files are not correct, and Morph-KGC cannot build the graph. Since the correction of the semantics is the topic of the study, the syntax is corrected manually in these cases.
 
 All test cases are classified within four groups that reflect the difficulty level.
 

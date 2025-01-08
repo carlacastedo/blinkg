@@ -1,0 +1,4 @@
+<http://example.org/person/Bob_Smith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+<http://example.org/person/Sue_Jones> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+<http://example.org/person/Sue_Jones> <http://example.org/hasAmount> "http://example.org/amount/20.0E0"^^<http://www.w3.org/2001/XMLSchema#float> .
+<http://example.org/person/Bob_Smith> <http://example.org/hasAmount> "http://example.org/amount/30.0E0"^^<http://www.w3.org/2001/XMLSchema#float> .

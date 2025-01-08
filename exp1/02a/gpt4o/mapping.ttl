@@ -19,9 +19,9 @@
     # Mapping properties
     rr:predicateObjectMap [
         rr:predicate ex:id ;
-        rml:reference "ID"
+        rr:objectMap [ rml:reference "ID" ]
     ] ;
     rr:predicateObjectMap [
         rr:predicate ex:name ;
-        rml:reference "Name"
+        rr:objectMap [ rml:reference "Name" ]
     ] .

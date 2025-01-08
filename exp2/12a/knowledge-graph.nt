@@ -1,0 +1,10 @@
+<http://example.org/Bob_Smith> <http://example.org/owes> "30" .
+<http://example.org/Sue_Jones> <http://example.org/owes> "20" .
+<http://example.org/Sue_Jones> <http://example.org/lastname> "Jones" .
+<http://example.org/Bob_Smith> <http://example.org/lastname> "Smith" .
+<http://example.org/Sue_Jones> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+<http://example.org/Bob_Smith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+<http://example.org/Sue_Jones> <http://example.org/name> "Sue Jones" .
+<http://example.org/Bob_Smith> <http://example.org/name> "Bob Smith" .
+<http://example.org/Bob_Smith> <http://example.org/firstname> "Bob" .
+<http://example.org/Sue_Jones> <http://example.org/firstname> "Sue" .

@@ -34,6 +34,13 @@ Both models brought back results for each of the test cases. Every mapping file 
 
 ### 01a
 
+#### Baseline
+
+```
+<http://example.org/Venus> <http://example.org/name> "Venus" .
+<http://example.org/Venus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+```
+
 #### GPT4o
 
 ```
@@ -48,6 +55,13 @@ Both models brought back results for each of the test cases. Every mapping file 
 ```
 
 ### 02a
+
+#### Baseline
+```
+<http://example.org/10> <http://example.org/id> "10" .
+<http://example.org/10> <http://example.org/name> "Venus" .
+<http://example.org/10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+```
 
 #### GPT4o
 
@@ -68,6 +82,13 @@ Both models brought back results for each of the test cases. Every mapping file 
 
 ### 04a
 
+#### Baseline
+```
+<http://example.org/person/Venus> <http://example.org/name> "Venus" .
+<http://example.org/person/Venus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+<http://example.org/sport/Tennis> <http://example.org/sportname> "Tennis" .
+<http://example.org/sport/Tennis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Sport> .
+```
 #### GPT4o
 
 ```
@@ -89,6 +110,20 @@ Both models brought back results for each of the test cases. Every mapping file 
 ```
 
 ### 05a
+
+#### Baseline
+```
+<http://example.org/Bob_Smith> <http://example.org/firstname> "Bob" .
+<http://example.org/Bob_Smith> <http://example.org/lastname> "Smith" .
+<http://example.org/Bob_Smith> <http://example.org/name> "Bob Smith" .
+<http://example.org/Bob_Smith> <http://example.org/owes> "30.0E0" .
+<http://example.org/Bob_Smith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+<http://example.org/Sue_Jones> <http://example.org/firstname> "Sue" .
+<http://example.org/Sue_Jones> <http://example.org/lastname> "Jones" .
+<http://example.org/Sue_Jones> <http://example.org/name> "Sue Jones" .
+<http://example.org/Sue_Jones> <http://example.org/owes> "20.0E0" .
+<http://example.org/Sue_Jones> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+```
 
 #### GPT4o
 
@@ -118,6 +153,14 @@ Both models brought back results for each of the test cases. Every mapping file 
 
 ### 08a
 
+#### Baseline
+```
+<http://example.org/person/10> <http://example.org/id> "10" .
+<http://example.org/person/10> <http://example.org/name> "Venus Williams" .
+<http://example.org/person/10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
+<http://example.org/sport/Tennis> <http://example.org/practises> "Tennis" .
+<http://example.org/sport/Tennis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Sport> .
+```
 #### GPT4o
 
 ```
@@ -143,6 +186,11 @@ Both models brought back results for each of the test cases. Every mapping file 
 ```
 
 ### 09a
+
+#### Baseline
+```
+
+```
 
 #### GPT4o
 

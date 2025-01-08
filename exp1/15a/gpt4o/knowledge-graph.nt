@@ -1,0 +1,8 @@
+<http://example.org/country/IE> <http://example.org/ns#name_es> "Irlanda" .
+<http://example.org/country/BO> <http://example.org/ns#name_es> "Estado Plurinacional de Bolivia" .
+<http://example.org/country/IE> <http://example.org/ns#name_en> "Ireland" .
+<http://example.org/country/BO> <http://example.org/ns#name_en> "Bolivia, Plurinational State of" .
+<http://example.org/country/BO> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/ns#Country> .
+<http://example.org/country/IE> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/ns#Country> .
+<http://example.org/country/BO> <http://example.org/ns#code> "BO" .
+<http://example.org/country/IE> <http://example.org/ns#code> "IE" .

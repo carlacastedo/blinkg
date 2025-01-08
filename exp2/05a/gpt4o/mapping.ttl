@@ -10,7 +10,7 @@
         rml:referenceFormulation ql:CSV
     ] ;
     rr:subjectMap [
-        rr:template "http://example.org/#Person_{fname}_{lname}_{row}" ;
+        rr:template "http://example.org/#Person_{fname}_{lname}" ;
         rr:class ex:Person
     ] ;
     rr:predicateObjectMap [

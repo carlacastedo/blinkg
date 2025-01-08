@@ -1,7 +1,0 @@
-<http://example.org/sport/100> <http://example.org/hasName> "Tennis" .
-<http://example.org/sport/100> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Sport> .
-<http://example.org/student/10> <http://example.org/hasName> "Venus Williams" .
-<http://example.org/student/10> <http://example.org/playsSport> <http://example.org/sport/100> .
-<http://example.org/student/10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Student> .
-<http://example.org/student/20> <http://example.org/hasName> "Demi Moore" .
-<http://example.org/student/20> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Student> .

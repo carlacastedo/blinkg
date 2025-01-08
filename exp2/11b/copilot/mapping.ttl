@@ -2,10 +2,14 @@
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix ex: <http://example.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <#StudentMapping>
     a rr:TriplesMap ;
-    rr:logicalTable [ rr:source "student.csv" ] ;
+    rml:logicalSource [
+        rml:source "student.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
     rr:subjectMap [
         rr:template "http://example.org/student{ID}" ;
         rr:class ex:Person ;
@@ -25,7 +29,10 @@
 
 <#SportMapping>
     a rr:TriplesMap ;
-    rr:logicalTable [ rr:source "sport.csv" ] ;
+    rml:logicalSource [
+        rml:source "sport.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
     rr:subjectMap [
         rr:template "http://example.org/sport{ID}" ;
         rr:class ex:Sport ;
@@ -41,7 +48,10 @@
 
 <#StudentSportMapping>
     a rr:TriplesMap ;
-    rr:logicalTable [ rr:source "student_sport.csv" ] ;
+    rml:logicalSource [
+        rml:source "student_sport.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
     rr:subjectMap [
         rr:template "http://example.org/student{ID_Student}" ;
         rr:class ex:Person ;

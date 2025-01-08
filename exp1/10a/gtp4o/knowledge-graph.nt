@@ -1,0 +1,12 @@
+<http://example.org/countries/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Country> .
+<http://example.org/countries/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Country> .
+<http://example.org/countries/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://schema.org/Country> .
+<http://example.org/countries/3> <http://schema.org/identifier> "3" .
+<http://example.org/countries/2> <http://schema.org/identifier> "2" .
+<http://example.org/countries/1> <http://schema.org/identifier> "1" .
+<http://example.org/countries/1> <http://purl.org/dc/terms/identifier> "BO" .
+<http://example.org/countries/3> <http://purl.org/dc/terms/identifier> "MF" .
+<http://example.org/countries/2> <http://purl.org/dc/terms/identifier> "IE" .
+<http://example.org/countries/3> <http://schema.org/name> "Saint Martin (French part)" .
+<http://example.org/countries/2> <http://schema.org/name> "Ireland" .
+<http://example.org/countries/1> <http://schema.org/name> "Bolivia, Plurinational State of" .

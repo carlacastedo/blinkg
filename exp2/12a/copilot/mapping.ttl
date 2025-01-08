@@ -2,6 +2,7 @@
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix ex: <http://example.org/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <#PersonMapping>
     rml:logicalSource [
@@ -9,7 +10,7 @@
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "http://example.org/{{fname}}_{{lname}}";
+        rr:template "http://example.org/{fname}_{lname}";
         rr:class ex:Person
     ];
     rr:predicateObjectMap [

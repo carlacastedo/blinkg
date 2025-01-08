@@ -1,5 +1,0 @@
-<http://example.org/Tennis> <http://example.org/#sportname> "Tennis" .
-<http://example.org/Tennis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/#Sport> .
-<http://example.org/Venus> <http://example.org/#name> "Venus" .
-<http://example.org/Venus> <http://example.org/#practises> <http://example.org/Tennis> .
-<http://example.org/Venus> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/#Person> .

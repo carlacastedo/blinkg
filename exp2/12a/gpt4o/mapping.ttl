@@ -12,7 +12,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://example.org/#Person{rowid}" ;
+        rr:template "http://example.org/#Person{fname}_{lname}" ;
         rr:class ex:Person
     ] ;
 

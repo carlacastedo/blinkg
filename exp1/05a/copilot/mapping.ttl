@@ -5,11 +5,11 @@
 
 <#PersonMapping>
     rml:logicalSource [
-        rml:source "data.csv";
+        rml:source "ious.csv";
         rml:referenceFormulation ql:CSV
     ];
     rr:subjectMap [
-        rr:template "http://example.org/{{fname}}_{{lname}}";
+        rr:template "http://example.org/{fname}_{lname}";
         rr:class ex:Person
     ];
     rr:predicateObjectMap [

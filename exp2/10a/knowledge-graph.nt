@@ -1,0 +1,12 @@
+<http://example.org/country_2> <http://example.org/iso3166> "IE" .
+<http://example.org/country_3> <http://example.org/iso3166> "MF" .
+<http://example.org/country_1> <http://example.org/iso3166> "BO" .
+<http://example.org/country_3> <http://example.org/id> "MF" .
+<http://example.org/country_2> <http://example.org/id> "IE" .
+<http://example.org/country_1> <http://example.org/id> "BO" .
+<http://example.org/country_2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Country> .
+<http://example.org/country_1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Country> .
+<http://example.org/country_3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Country> .
+<http://example.org/country_1> <http://example.org/name> "Bolivia, Plurinational State of"@en .
+<http://example.org/country_3> <http://example.org/name> "Saint Martin (French part)"@en .
+<http://example.org/country_2> <http://example.org/name> "Ireland"@en .

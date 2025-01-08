@@ -8,10 +8,7 @@
     rml:logicalSource [
         rml:source "persons.csv";
         rml:referenceFormulation ql:CSV
-    ] .
-
-# Mapping for Person nodes
-<#PersonMapping> 
+    ];
     rr:subjectMap [
         rr:template "http://example.org/Person/{fname}_{lname}";
         rr:class ex:Person
