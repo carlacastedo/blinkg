@@ -1,0 +1,89 @@
+I have these CSV related files and I want to build a knowledge graph with all the relations between them using this ontology. Could you make the graph and the corresponding mappings in RML? Make sure you reflect ALL de relations between them EXPLICITLY.
+clients.csv
+ID,Name,Phone number
+1,Alice Jones,987654321
+2,Bob Smith,999999999
+3,Catherine Parker,987789987
+orders.csv
+ID,Product,Client,Date
+1000,120,1,2024/12/19
+1000,130,1,2024/12/19
+2000,90,2,2024/12/18
+2000,110,2,2024/12/18
+3000,110,3,2024/12/18
+products.csv
+ID,Description
+90,White shirt
+100,Blue jeans
+110,Red T-shirt
+120,Pink dress
+130,Brown jacket
+ontology.ttl
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/#> .
+@prefix rml: <http://w3id.org/rml/> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+
+ex:Client a owl:Class ;
+   rdf:label "client" .
+
+ex:Order a owl:Class ;
+   rdfs:label "order" .
+
+ex:Product a owl:Class ;
+   rdf:label "product" .
+
+ex:client_id a owl:DatatypeProperty ;
+   rdfs:label "client_id" ;
+   rdfs:range xsd:positiveInteger ;
+   rdfs:domain ex:Client .
+
+ex:name a owl:DatatypeProperty ;
+   rdfs:label "name" ;
+   rdfs:range xsd:string ;
+   rdfs:domain ex:Client .
+
+ex:phone_number a owl:DatatypeProperty;
+   rdfs:label "phone_number";
+   rdfs:range xsd:string;
+   rdfs:domain ex:Client .
+
+ex:order_id a owl:DatatypeProperty;
+   rdfs:label "order_id";
+   rdfs:range xsd:positiveInteger;
+   rdfs:domain ex:Order .
+
+ex:date a owl:DatatypeProperty;
+   rdfs:label "date";
+   rdfs:range xsd:date;
+   rdfs:domain ex:Order .
+
+ex:direction a owl:DatatypeProperty;
+   rdfs:label "direction";
+   rdfs:range xsd:string;
+   rdfs:domain ex:Order .
+
+ex:madeby a owl:ObjectProperty;
+   rdfs:label "madeby";
+   rdfs:range ex:Client;
+   rdfs:domain ex:Order .
+
+ex:hasproduct a owl:ObjectProperty;
+   rdfs:label "hasproduct";
+   rdfs:range ex:Product;
+   rdfs:domain ex:Order.
+
+ex:product_id a owl:DatatypeProperty;
+   rdfs:label "product_id";
+   rdfs:range xsd:positiveInteger;
+   rdfs:domain ex:Product .
+
+ex:description a owl:DatatypeProperty;
+   rdfs:label "description";
+   rdfs:range xsd:string;
+   rdfs:domain ex:Product .

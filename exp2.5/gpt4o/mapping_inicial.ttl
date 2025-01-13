@@ -1,0 +1,71 @@
+@prefix rml: <http://w3id.org/rml/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix ex: <http://example.org/#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#ClientMapping>
+    rml:logicalSource [
+        rml:source "clients.csv" ;
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://example.org/clients/{ID}" ;
+        rr:class ex:Client
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:client_id ;
+        rr:objectMap [ rml:reference "ID" ; rr:datatype xsd:positiveInteger ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:name ;
+        rr:objectMap [ rml:reference "Name" ; rr:datatype xsd:string ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:phone_number ;
+        rr:objectMap [ rml:reference "Phone number" ; rr:datatype xsd:string ]
+    ].
+
+<#OrderMapping>
+    rml:logicalSource [
+        rml:source "orders.csv" ;
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://example.org/orders/{ID}" ;
+        rr:class ex:Order
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:order_id ;
+        rr:objectMap [ rml:reference "ID" ; rr:datatype xsd:positiveInteger ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:date ;
+        rr:objectMap [ rml:reference "Date" ; rr:datatype xsd:date ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:madeby ;
+        rr:objectMap [ rr:template "http://example.org/clients/{Client}" ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:hasproduct ;
+        rr:objectMap [ rr:template "http://example.org/products/{Product}" ]
+    ].
+
+<#ProductMapping>
+    rml:logicalSource [
+        rml:source "products.csv" ;
+        rml:referenceFormulation ql:CSV
+    ];
+    rr:subjectMap [
+        rr:template "http://example.org/products/{ID}" ;
+        rr:class ex:Product
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:product_id ;
+        rr:objectMap [ rml:reference "ID" ; rr:datatype xsd:positiveInteger ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate ex:description ;
+        rr:objectMap [ rml:reference "Description" ; rr:datatype xsd:string ]
+    ].

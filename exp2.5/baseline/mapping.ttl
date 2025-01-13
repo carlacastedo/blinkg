@@ -1,0 +1,159 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#>.
+@prefix owl: <http://www.w3.org/2002/07/owl#>.
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix ex: <http://example.org/#> .
+@prefix rml: <http://w3id.org/rml/> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+
+ex:Client a owl:Class ;
+   rdf:label "client" .
+
+ex:Order a owl:Class ;
+   rdfs:label "order" .
+
+ex:Product a owl:Class ;
+   rdf:label "product" .
+
+ex:client_id a owl:DatatypeProperty ;
+   rdfs:label "client_id" ;
+   rdfs:range xsd:positiveInteger ;
+   rdfs:domain ex:Client .
+
+ex:name a owl:DatatypeProperty ;
+   rdfs:label "name" ;
+   rdfs:range xsd:string ;
+   rdfs:domain ex:Client .
+
+ex:phone_number a owl:DatatypeProperty;
+   rdfs:label "phone_number";
+   rdfs:range xsd:string;
+   rdfs:domain ex:Client .
+
+ex:order_id a owl:DatatypeProperty;
+   rdfs:label "order_id";
+   rdfs:range xsd:positiveInteger;
+   rdfs:domain ex:Order .
+
+ex:date a owl:DatatypeProperty;
+   rdfs:label "date";
+   rdfs:range xsd:date;
+   rdfs:domain ex:Order .
+
+ex:direction a owl:DatatypeProperty;
+   rdfs:label "direction";
+   rdfs:range xsd:string;
+   rdfs:domain ex:Order .
+
+ex:madeby a owl:ObjectProperty;
+   rdfs:label "madeby";
+   rdfs:range ex:Client;
+   rdfs:domain ex:Order .
+
+ex:hasproduct a owl:ObjectProperty;
+   rdfs:label "hasproduct";
+   rdfs:range ex:Product;
+   rdfs:domain ex:Order.
+
+ex:product_id a owl:DatatypeProperty;
+   rdfs:label "product_id";
+   rdfs:range xsd:positiveInteger;
+   rdfs:domain ex:Product .
+
+ex:description a owl:DatatypeProperty;
+   rdfs:label "description";
+   rdfs:range xsd:string;
+   rdfs:domain ex:Product .
+
+ex:ClientMapping a rr:TriplesMap;
+   rml:logicalSource [
+      rml:source "clients.csv";
+      rml:referenceFormulation ql:CSV
+   ];
+
+   rr:subjectMap [
+      rr:template "http://example.org/client/{ID}";
+      rr:class ex:Client;
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:client_id;
+      rr:objectMap [rml:reference "ID"; rr:datatype xsd:positiveInteger]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:name;
+      rr:objectMap [rml:reference "Name"; rr:datatype xsd:string]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:phone_number;
+      rr:objectMap [rml:reference "Phone number"; rr:datatype xsd:string]
+   ].
+
+ex:OrderMapping a rr:TriplesMap;
+   rml:logicalSource [
+      rml:source "orders.csv";
+      rml:referenceFormulation ql:CSV
+   ];
+
+   rr:subjectMap [
+      rr:template "http://example.org/order/{ID}";
+      rr:class ex:Order;
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:order_id;
+      rr:objectMap [rml:reference "ID"; rr:datatype xsd:positiveInteger]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:date;
+      rr:objectMap [rml:reference "Date"; rr:datatype xsd:date]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:madeby;
+      rr:objectMap [
+         rr:parentTriplesMap ex:ClientMapping;
+         rr:joinCondition [
+            rr:child "Client";
+            rr:parent "ID"
+         ]
+      ]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:hasproduct;
+      rr:objectMap [
+         rr:parentTriplesMap ex:Product_Mapping;
+         rr:joinCondition [
+            rr:child "Product";
+            rr:parent "ID"
+         ]
+      ]
+   ].
+
+ex:Product_Mapping a rr:TriplesMap;
+   rml:logicalSource [
+      rml:source "products.csv";
+      rml:referenceFormulation ql:CSV
+   ];
+
+   rr:subjectMap [
+      rr:template "http://example.org/product/{ID}";
+      rr:class ex:Product;
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:product_id;
+      rr:objectMap [rml:reference "ID"; rr:datatype xsd:positiveInteger]
+   ];
+
+   rr:predicateObjectMap [
+      rr:predicate ex:description;
+      rr:objectMap [rml:reference "Description"; rr:datatype xsd:string]
+   ].
+
