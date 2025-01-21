@@ -2,8 +2,8 @@
 <http://example.org/city/Madrid> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/City> .
 <http://example.org/person/Sue_Jones> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
 <http://example.org/person/Bob_Smith> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Person> .
-<http://example.org/person/Sue_Jones> <http://example.org/name> "Sue Jones" .
-<http://example.org/person/Bob_Smith> <http://example.org/name> "Bob Smith" .
+<http://example.org/person/Sue_Jones> <http://example.org/fullname> "Sue Jones" .
+<http://example.org/person/Bob_Smith> <http://example.org/fullname> "Bob Smith" .
 <http://example.org/city/London> <http://example.org/lives> "London" .
 <http://example.org/city/Madrid> <http://example.org/lives> "Madrid" .
 <http://example.org/person/Sue_Jones> <http://example.org/owes> "20" .

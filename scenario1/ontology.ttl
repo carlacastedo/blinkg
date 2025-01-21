@@ -19,25 +19,23 @@ ex:id a owl:DatatypeProperty ;
    rdfs:range xsd:integer ;
    rdfs:domain ex:Person .
 
-ex:name a owl:DatatypeProperty ;
-   rdfs:comment "Full name of a person"@en ;
-   rdfs:label "name" ;
-   rdfs:range xsd:string ;
-   rdfs:domain ex:Person .
-
 ex:firstname a owl:DatatypeProperty ;
    rdfs:comment "First name of a person"@en ;
    rdfs:label "firstname" ;
    rdfs:range xsd:string ;
-   rdfs:domain ex:Person ;
-   rdfs:subPropertyOf ex:name .
+   rdfs:domain ex:Person .
 
 ex:lastname a owl:DatatypeProperty ;
    rdfs:comment "Last name of a person"@en ;
    rdfs:label "lastname" ;
    rdfs:range xsd:string ;
-   rdfs:domain ex:Person ;
-   rdfs:subPropertyOf ex:name .
+   rdfs:domain ex:Person .
+
+ex:fullname a owl:DatatypeProperty ;
+   rdfs:comment "Full name of a person"@en ;
+   rdfs:label "name" ;
+   rdfs:range xsd:string ;
+   rdfs:domain ex:Person .
 
 ex:sportid a owl:DatatypeProperty ;
    rdfs:comment "Unique number that identificates each sport"@en ;
