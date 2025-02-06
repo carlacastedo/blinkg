@@ -1,7 +1,0 @@
-<http://example.com/sport/100> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Sport> .
-<http://example.com/student/10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Student> .
-<http://example.com/student/20> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.com/Student> .
-<http://example.com/student/10> <http://example.com/name> "Venus Williams" .
-<http://example.com/student/20> <http://example.com/name> "Demi Moore" .
-<http://example.com/sport/100> <http://example.com/name> "Tennis" .
-<http://example.com/student/10> <http://example.com/sport> <http://example.com/sport/100> .

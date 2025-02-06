@@ -1,9 +1,0 @@
-<http://example.org/2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Country> .
-<http://example.org/1> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Country> .
-<http://example.org/3> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/Country> .
-<http://example.org/3> <http://example.org/hasName> "Saint Martin (French part)" .
-<http://example.org/2> <http://example.org/hasName> "Ireland" .
-<http://example.org/1> <http://example.org/hasName> "Bolivia, Plurinational State of" .
-<http://example.org/3> <http://example.org/hasISO3166> "MF" .
-<http://example.org/2> <http://example.org/hasISO3166> "IE" .
-<http://example.org/1> <http://example.org/hasISO3166> "BO" .

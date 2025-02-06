@@ -1,6 +1,0 @@
-I have this CSV file and I want to build a knowledge graph with all the relations in it. Could you make the graph and the corresponding mappings in RML? Make sure you reflect ALL de relations EXPLICITLY.
-persons.csv 
-fname,lname,amount
-Bob,Smith,30
-Sue,Jones,20
-Bob,Smith,30

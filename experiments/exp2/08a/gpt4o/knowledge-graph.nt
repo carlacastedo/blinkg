@@ -1,8 +1,0 @@
-<http://example.org/#person_10> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/#Person> .
-<http://example.org/#sport_Tennis> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://example.org/#Sport> .
-<http://example.org/#person_10> <http://example.org/#practises> <http://example.org/#sport_Tennis> .
-<http://example.org/#sport_Tennis> <http://example.org/#sportname> "Tennis"@en .
-<http://example.org/#person_10> <http://example.org/#id> "10"^^<http://www.w3.org/2001/XMLSchema#integer> .
-<http://example.org/#person_10> <http://example.org/#name> "Venus Williams" .
-<http://example.org/#person_10> <http://example.org/#lastname> "Venus Williams" .
-<http://example.org/#person_10> <http://example.org/#firstname> "Venus Williams" .
