@@ -1,6 +1,6 @@
 @prefix : <http://vocab.gtfs.org/terms#> .
 @prefix cc: <http://creativecommons.org/ns#> .
-@prefix dc: <http://purl.org/dc/terms/> .
+@prefix dct: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -16,13 +16,13 @@
 @base <http://vocab.gtfs.org/terms#> .
 
 <http://vocab.gtfs.org/terms#> rdf:type owl:Ontology ;
-                                dc:creator [ foaf:mbox "Pieter.Colpaert@UGent.be" ;
+                                dct:creator [ foaf:mbox "Pieter.Colpaert@UGent.be" ;
                                               foaf:name "Pieter Colpaert"
                                             ] ,
                                             [ foaf:mbox "abyrd@conveyal.com" ;
                                               foaf:name "Andrew Byrd"
                                             ] ;
-                                dc:description "Esta ontología es una traducción de la Especificación General de Feeds de Transporte Público a URIs. El objetivo es crear una plataforma de intercambio donde el modelo Linked GTFS pueda usarse para obtener los datos correctos en el formato adecuado. Para la especificación semántica de clases y propiedades, visite https://developers.google.com/transit/gtfs/reference."@es ,
+                                dct:description "Esta ontología es una traducción de la Especificación General de Feeds de Transporte Público a URIs. El objetivo es crear una plataforma de intercambio donde el modelo Linked GTFS pueda usarse para obtener los datos correctos en el formato adecuado. Para la especificación semántica de clases y propiedades, visite https://developers.google.com/transit/gtfs/reference."@es ,
                                                 "This ontology is a translation of the General Transit Feed Specification towards URIs. Its intended use is creating an exchange platform where the Linked GTFS model can be used as a start to get the right data into the right format. For semantics of the classes and properties, see https://developers.google.com/transit/gtfs/reference."@en ;
                                 vann:preferredNamespacePrefix "gtfs" ;
                                 vann:preferredNamespaceUri "http://vocab.gtfs.org/terms#" ;
@@ -93,7 +93,13 @@ gtfs:dropOffType rdf:type owl:ObjectProperty ;
 
 
 gtfs:parentStation rdf:type owl:ObjectProperty ;
-                   rdfs:domain gtfs:Stop ;
+                   rdfs:domain [ rdf:type owl:Class ;
+                      owl:unionOf ( gtfs:Stop
+                                    gtfs:StationEntrance
+                                    gtfs:GenericNode
+                                    gtfs:BoardingArea
+                                  )
+                    ] ;
                    rdfs:range gtfs:Station ;
                    rdfs:comment "Defines hierarchy between the different locations"@en ,
                                 "Define una jerarquía entre las distintas localizaciones."@es ;
@@ -364,6 +370,7 @@ gtfs:wheelchairAccessible rdf:type owl:ObjectProperty ;
                                        owl:unionOf (gtfs:Station
                                                     gtfs:Trip
                                                     gtfs:Stop
+                                                    gtfs:StationEntrance
                                                    )
                                       ];
                           rdfs:range [ owl:intersectionOf ( <http://www.w3.org/2004/02/skos/core#Concept>
@@ -445,7 +452,8 @@ gtfs:id rdf:type owl:DatatypeProperty ;
                                     gtfs:Trip
                                   )
                     ] ;
-        rdfs:range dc:identifier ;
+        rdfs:range xsd:string ;
+        rdfs:subPropertyOf dct:identifier ;
         rdfs:comment "Identifies a transit agency, a route, a shape, a set of dates when service is available, a location, a trip or a zone for a stop."@en ,
                      "Identifica una agencia de tránsito, una ruta, un trayecto, un conjunto de fechas en las que un servicio está disponible, un viaje o una zona para una parada"@es ;
         rdfs:label "ID"@en ,
@@ -497,7 +505,8 @@ gtfs:language rdf:type owl:DatatypeProperty ;
                                         gtfs:Feed
                                        )
                            ];
-              rdfs:range dc:language ;
+              rdfs:range xsd:string ; 
+              rdfs:subPropertyOf dct:language ;
               rdfs:comment "Language used by a transit agency, used for the text in the GTFS dataset or default language used when the data consumer doesn’t know the language of the rider."@en ;
               rdfs:label "Language"@en .
 
@@ -527,7 +536,12 @@ gtfs:longName rdfs:comment "Long name given to a route. This name is generally m
                          "nombre completo"@es ;
               rdfs:seeAlso <https://developers.google.com/transit/gtfs/examples/display-to-users#RouteLongName> ;
               rdf:type owl:DatatypeProperty ;
-              rdfs:range dc:title ;
+              rdfs:range [
+                   a rdfs:Datatype ;
+                   owl:onDatatype xsd:string;
+                   owl:withRestrictions ([ xsd:pattern "^([A-Z][a-z]*)(\\s[A-Z][a-z]*)*$" ])
+               ];
+              rdfs:subPropertyOf dct:title ;
               rdfs:domain gtfs:Route .
 
 
@@ -537,12 +551,17 @@ gtfs:shortName rdfs:comment "Nombre corto dado a una ruta o viaje"@es ,
                           "nombre corto"@es ;
                rdfs:seeAlso <https://developers.google.com/transit/gtfs/examples/display-to-users#RouteShortName> ;
                rdf:type owl:DatatypeProperty ;
-               rdfs:range dc:title ;
+               rdfs:range [
+                   a rdfs:Datatype ;
+                   owl:onDatatype xsd:string;
+                   owl:withRestrictions ([ xsd:pattern "^([A-Z][a-z]*)(\\s[A-Z][a-z]*)*$" ])
+               ];
+               rdfs:subPropertyOf dct:title ;
                rdfs:domain [rdf:type owl:Class; 
                             owl:unionOf (gtfs:Route
                                          gtfs:Trip
                                         )
-                           ].
+                           ].      
 
 
 gtfs:desc rdf:type owl:DatatypeProperty ;
@@ -551,7 +570,8 @@ gtfs:desc rdf:type owl:DatatypeProperty ;
                                          gtfs:Location
                                         )
                            ];
-          rdfs:range dc:description ;
+          rdfs:range xsd:string ;
+          rdfs:subPropertyOf dct:description ;
           rdfs:comment "Description of a route or a location that provides useful, quality information."@en ;
           rdfs:label "RouteDesc"@en .
 
@@ -590,9 +610,10 @@ gtfs:nonNegativeFloat a rdfs:Datatype ;
                                                 [ xsd:minInclusive "0.0"^^xsd:float ]
                                               ) .
 
+
 gtfs:distanceTraveled rdf:type owl:DatatypeProperty ;
                       rdfs:domain [rdf:type owl:Class; 
-                           owl:unionOf (gtfs:Shape
+                           owl:unionOf (gtfs:ShapePoint
                                         gtfs:StopTime
                                        )
                            ];
@@ -660,7 +681,8 @@ gtfs:endDate rdf:type owl:DatatypeProperty ;
 
 gtfs:date rdf:type owl:DatatypeProperty ;
           rdfs:domain gtfs:CalendarDateRule ;
-          rdfs:range dc:date ;
+          rdfs:range xsd:date ;
+          rdfs:subPropertyOf dct:date ;
           rdfs:comment "Date when service exception occurs."@en ;
           rdfs:label "Date"@en .
 
@@ -753,7 +775,8 @@ gtfs:headsign rdf:type owl:DatatypeProperty ;
 
 gtfs:block rdf:type owl:DatatypeProperty ;
            rdfs:domain gtfs:Trip ;
-           rdfs:range dc:identifier;
+           rdfs:range xsd:string ;
+           rdfs:subPropertyOf dct:identifier ;
            rdfs:comment "Identifies the block to which the trip within this feed belongs. A block consists of two or more sequential trips made using the same vehicle, where a passenger can transfer from one trip to the next just by staying in the vehicle."@en ,
                         "Identifica el bloque al que pertenece el viaje. Un bloque consta de dos o más viajes secuenciales realizados en el mismo vehículo, en los que un pasajero puede cambiar de viaje si simplemente permanece en el vehículo."@es ;
            rdfs:label "Block"@en ,
@@ -764,7 +787,8 @@ gtfs:block rdf:type owl:DatatypeProperty ;
 
 gtfs:publisher rdf:type owl:DatatypeProperty ;
                rdfs:domain gtfs:Feed ;
-               rdfs:range dc:publisher ;
+               rdfs:range xsd:string ;
+               rdfs:subPropertyOf dct:publisher ;
                rdfs:comment "Full name of the organization that publishes the dataset."@en ;
                rdfs:label "Publisher"@en .
 
@@ -872,7 +896,17 @@ gtfs:ShapePoint rdf:type owl:Class ;
 
 
 gtfs:Station rdf:type owl:Class ;
-             rdfs:subClassOf gtfs:Location ;
+             rdfs:subClassOf gtfs:Location ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty gtfs:latitude ;
+                  owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty gtfs:longitude ;
+                  owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                ]  ;
              rdfs:comment "A physical structure or area that contains one or more platform."@en ,
                           "Estructura física o área que contiene una o más paradas."@es ;
              rdfs:label "Estación"@es ,
@@ -880,13 +914,68 @@ gtfs:Station rdf:type owl:Class ;
              rdfs:seeAlso <https://developers.google.com/transit/gtfs/reference#stops_fields> .
 
 
+gtfs:StationEntrance rdf:type owl:Class ;
+                     rdfs:subClassOf gtfs:Location ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty gtfs:latitude ;
+                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                        ] ,
+                        [ rdf:type owl:Restriction ;
+                          owl:onProperty gtfs:longitude ;
+                          owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                          owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                        ]  ;
+                     rdfs:comment "A location where passengers can enter or exit a station from the street. If an entrance/exit belongs to multiple stations, it can be linked by pathways to both, but the data provider must pick one of them as parent."@en ;
+                     rdfs:label "Station Entrance"@en .
+
+
+gtfs:GenericNode rdf:type owl:Class ;
+                 rdfs:subClassOf gtfs:Location ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty gtfs:latitude ;
+                      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty gtfs:longitude ;
+                      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                    ]  ;
+                 rdfs:comment "A location within a station, not matching any other location type, which can be used to link together pathways."@en ;
+                 rdfs:label "Generic Node"@en .
+
+
+gtfs:BoardingArea rdf:type owl:Class ;
+                  rdfs:subClassOf gtfs:Location ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty gtfs:latitude ;
+                      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                    ] ,
+                    [ rdf:type owl:Restriction ;
+                      owl:onProperty gtfs:longitude ;
+                      owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                    ]  ;
+                  rdfs:comment "A specific location on a platform, where passengers can board and/or alight vehicles."@en ;
+                  rdfs:label "Boarding Area"@en .
+
+
 gtfs:Stop rdf:type owl:Class ;
-          rdfs:subClassOf gtfs:Location ;
+          rdfs:subClassOf gtfs:Location ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty gtfs:latitude ;
+                  owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                ] ,
+                [ rdf:type owl:Restriction ;
+                  owl:onProperty gtfs:longitude ;
+                  owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+                  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+                ]  ;
           rdfs:comment "A stop is a physical location where a vehicle stops or leaves. Multiple routes may use the same stop."@en ,
                        "Un lugar donde los pasajeros suben o bajan de un vehículo de transporte público."@es ;
           rdfs:label "Parada"@es ,
                      "Stop"@en ;
           rdfs:seeAlso <https://developers.google.com/transit/gtfs/reference#stops_fields> .
+
 
 
 gtfs:StopTime rdf:type owl:Class ;

@@ -251,7 +251,7 @@
 <http://transport.linkeddata.es/kos/timepoint> a skos:ConceptScheme;
     skos:hasTopConcept <http://transport.linkeddata.es/kos/timepoint/approximated> ;
     skos:hasTopConcept <http://transport.linkeddata.es/kos/timepoint/exact> ;
-    skos:prefLabel "Direction ID"@en ;
+    skos:prefLabel "Timepoint"@en ;
     dc:title "Indicates if arrival and departure times for a stop are strictly adhered to by the vehicle or if they are instead approximate and/or interpolated times. Approximated or exact."@en .
 
 <http://transport.linkeddata.es/kos/timepoint/approximated>  a skos:Concept ;
