@@ -1,0 +1,5 @@
+.idea
+.venv
+src/old
+.DS_Store
+ src/__pycache__
