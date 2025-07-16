@@ -16,7 +16,7 @@ We have divided the benchmark en three different scenarios, increasing their com
 
 - Scenario 1:
 - Scenario 2:
-- Scenario 3
+- Scenario 3:
 
 ## Benchmark Metrics
 
@@ -29,7 +29,8 @@ Deepseek, Gemini 2.5 pro, GPT-4 Omni, LLama-3.3-70B, Mixtral 8x22B and OpenAI o3
 
 ## Authors
 
-- Carla Castedo
 - David Chaves-Fraga (main contact) - david.chaves at usc.es
+- Carla Castedo
+
 
 CiTIUS - University of Santiago de Compostela, July 2025 - Present

@@ -21,7 +21,13 @@
                                             ] ,
                                             [ foaf:mbox "abyrd@conveyal.com" ;
                                               foaf:name "Andrew Byrd"
-                                            ] ;
+                                            ],
+                                            [ foaf:mbox "david.chaves@usc.es" ;
+                                              foaf:name "David Chaves-Fraga"
+                                            ],
+                                            [ foaf:mbox "carlacastedo.pereira@usc.es" ;
+                                              foaf:name "Carla Castedo"
+                                            ];
                                 dct:description "Esta ontología es una traducción de la Especificación General de Feeds de Transporte Público a URIs. El objetivo es crear una plataforma de intercambio donde el modelo Linked GTFS pueda usarse para obtener los datos correctos en el formato adecuado. Para la especificación semántica de clases y propiedades, visite https://developers.google.com/transit/gtfs/reference."@es ,
                                                 "This ontology is a translation of the General Transit Feed Specification towards URIs. Its intended use is creating an exchange platform where the Linked GTFS model can be used as a start to get the right data into the right format. For semantics of the classes and properties, see https://developers.google.com/transit/gtfs/reference."@en ;
                                 vann:preferredNamespacePrefix "gtfs" ;
