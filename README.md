@@ -14,13 +14,13 @@ knowledge graphs from (semi)structured data. It provides:
 ## Benchmark Resources
 We have divided the benchmark en three different scenarios, increasing their complexity. They can be found in the folder `scenarios`:
 
-### Scenario 1: Schema-Aligned Mapping
+- Scenario 1: Schema-Aligned Mapping:
 The structure and vocabulary of the input data closely match the target ontology. Mapping tasks involve straightforward identification of classes, properties, and entities. This scenario represents low-complexity environments where LLMs can operate with minimal ambiguity.
 
-### Scenario 2: Functional and Partially Aligned Mapping
+- Scenario 2: Functional and Partially Aligned Mapping:
 Input data includes functional transformations and moderate divergence from the ontology schema. Tasks require interpreting formatting, value normalization, and simple logic operations. It models real-world cases with medium complexity in mapping design.
 
-### Scenario 3: Schema-Distant and High Abstraction Mapping
+- Scenario 3: Schema-Distant and High Abstraction Mapping:
 Input schemas and ontologies have minimal structural or lexical overlap. Tasks demand abstraction, contextual reasoning, and domain understanding to derive correct mappings. This scenario simulates the most challenging conditions for semantic alignment.
 
 
