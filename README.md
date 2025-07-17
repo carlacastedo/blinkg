@@ -17,11 +17,30 @@ We have divided the benchmark en three different scenarios, increasing their com
 - Scenario 1: Schema-Aligned Mapping:
 The structure and vocabulary of the input data closely match the target ontology. Mapping tasks involve straightforward identification of classes, properties, and entities. This scenario represents low-complexity environments where LLMs can operate with minimal ambiguity.
 
+![Ontology Scenario 1](https://github.com/carlacastedo/blinkg/blob/f3de34c28442ee17fe366e1d73e90c7fb4cd7075/figures/ontology1.pdf "Ontology Scenario 1")
+
 - Scenario 2: Functional and Partially Aligned Mapping:
 Input data includes functional transformations and moderate divergence from the ontology schema. Tasks require interpreting formatting, value normalization, and simple logic operations. It models real-world cases with medium complexity in mapping design.
 
 - Scenario 3: Schema-Distant and High Abstraction Mapping:
 Input schemas and ontologies have minimal structural or lexical overlap. Tasks demand abstraction, contextual reasoning, and domain understanding to derive correct mappings. This scenario simulates the most challenging conditions for semantic alignment.
+
+
+| Features/Scenarios       | 1A | 1B | 1C | 1D | 1E | 1F | 1G | 1H | Scenario 2 GTFS | Scenario 3 PPDS |
+|--------------------------|----|----|----|----|----|----|----|----|-----------------|-----------------|
+| One data reference       | x  | x  | x  | x  | x  | x  | x  | x  | x               | x               |
+| Two or more data references |  | x  | x  | x  | x  | x  | x  | x  | x               | x               |
+| Complex object generation |  |  |  | x  |  | x  | x  |  | x               | x               |
+| Simple subject generation | x | x | x |  | x |  |  | x | x               | x               |
+| Complex subject generation |  |  |  | x |  | x | x |  | x               | x               |
+| Self join                |  |  | x |  |  |  | x |  | x               | x               |
+| Conditional join         |  |  |  |  | x | x | x |  | x               | x               |
+| Two or more input sources |  |  |  |  |  | x | x | x | x               | x               |
+| Duplicate entities       |  |  |  | x |  |  | x | x | x               | x               |
+| Datatypes generation     |  |  |  | x |  |  | x | x | x               | x               |
+| Language annotations     |  |  |  |  |  |  | x | x | x               | x               |
+| Transformation Functions |   |   |   |   |   |   |   |   | x               | x               |
+| Distant Schemes          |   |   |   |   |   |   |   |   |                | x               |
 
 
 ## Benchmark Metrics
