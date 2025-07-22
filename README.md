@@ -135,9 +135,9 @@ Deepseek, Gemini 2.5 pro, GPT-4 Omni, LLama-3.3-70B, Mixtral 8x22B and OpenAI o3
 
 <figure style="text-align: left;">
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0px;">
-    <img src="./evaluation/scenario1_manual/measure_f.png" alt="Expert F-score Scenario 1" style="width:33%;">
-    <img src="./evaluation/scenario1_no_clean/f1_1_noclean.png" alt="Raw F-score Scenario 1" style="width:33%;">
-    <img src="./evaluation/scenario1_clean/f1_1_clean.png" alt="Post-processed F-score Scenario 1" style="width:33%;">
+    <img src="./evaluation/scenario1_manual/measure_f.png" alt="Expert F-score Scenario 1" style="width:32%;">
+    <img src="./evaluation/scenario1_no_clean/f1_1_noclean.png" alt="Raw F-score Scenario 1" style="width:32%;">
+    <img src="./evaluation/scenario1_clean/f1_1_clean.png" alt="Post-processed F-score Scenario 1" style="width:32%;">
     </div>
     <p><em>
         Comparison of the F-score between the three different evaluations in the Scenario 1, expert-based (left), raw (center), and post-processed (right).
@@ -158,9 +158,9 @@ Deepseek, Gemini 2.5 pro, GPT-4 Omni, LLama-3.3-70B, Mixtral 8x22B and OpenAI o3
 
 <figure style="text-align: left;">
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0px;">
-    <img src="./evaluation/scenario2_manual/measure_f.png" alt="Expert F-score Scenario 2" style="width:33%;">
-    <img src="./evaluation/scenario2_no_clean/mean_column_f_80.png" alt="Raw F-score Scenario 2" style="width:33%;">
-    <img src="./evaluation/scenario2_clean/mean_column_f_80.png" alt="Post-processed F-score Scenario 2" style="width:33%;">
+    <img src="./evaluation/scenario2_manual/measure_f.png" alt="Expert F-score Scenario 2" style="width:32%;">
+    <img src="./evaluation/scenario2_no_clean/mean_column_f_80.png" alt="Raw F-score Scenario 2" style="width:32%;">
+    <img src="./evaluation/scenario2_clean/mean_column_f_80.png" alt="Post-processed F-score Scenario 2" style="width:32%;">
     </div>
     <p><em>
         Comparison of the F-score between the three different evaluations in the Scenario 2, expert-based (left), raw (center), and post-processed (right).
@@ -181,9 +181,9 @@ Deepseek, Gemini 2.5 pro, GPT-4 Omni, LLama-3.3-70B, Mixtral 8x22B and OpenAI o3
 
 <figure style="text-align: left;">
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0px;">
-    <img src="./evaluation/scenario3_manual/measure_f.png" alt="Expert F-score Scenario 3" style="width:33%;">
-    <img src="./evaluation/scenario3_no_clean/f1_3_noclean.png" alt="Raw F-score Scenario 3" style="width:33%;">
-    <img src="./evaluation/scenario3_clean/f1_3_clean.png" alt="Post-processed F-score Scenario 3" style="width:33%;">
+    <img src="./evaluation/scenario3_manual/measure_f.png" alt="Expert F-score Scenario 3" style="width:32%;">
+    <img src="./evaluation/scenario3_no_clean/f1_3_noclean.png" alt="Raw F-score Scenario 3" style="width:32%;">
+    <img src="./evaluation/scenario3_clean/f1_3_clean.png" alt="Post-processed F-score Scenario 3" style="width:32%;">
     </div>
     <p><em>
         Comparison of the F-score between the three different evaluations in the Scenario 3, expert-based (left), raw (center), and post-processed (right).
